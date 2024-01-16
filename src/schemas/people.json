@@ -1,0 +1,70 @@
+{
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "The name of this person.",
+        "translate": "nombre"
+      },
+      "height": {
+        "type": "integer",
+        "description": "The height of this person.",
+        "translate": "altura"
+      },
+      "mass": {
+        "type": "integer",
+        "description": "The mass of this person.",
+        "translate": "peso"
+      },  
+      "hair_color": {
+        "type": "string",
+        "description": "The hair_color of this person.",
+        "translate": "color_cabello"
+      },   
+      "skin_color": {
+        "type": "string",
+        "description": "The skin_color of this person.",
+        "translate": "color_piel"
+      }, 
+      "eye_color": {
+        "type": "string",
+        "description": "The eye_color of this person.",
+        "translate": "color_ojo"
+      }, 
+      "birth_year": {
+        "type": "string",
+        "description": "The birth year of this person. BBY (Before the Battle of Yavin) or ABY (After the Battle of Yavin).",
+        "translate": "fecha_nacimiento"
+      },
+      "gender": {
+        "type": "string",
+        "description": "The gender of this person.",
+        "translate": "genero"
+      }, 
+      "homeworld": {
+        "type": "string",
+        "description": "The homeworld of this person.",
+        "translate": "mundo"
+      }, 
+      "vehicles": {
+        "type": "array",
+        "description": "An array of vehicle resources that this person has piloted",
+        "translate": "vehiculos"
+      },
+      "created": {
+        "type": "string",
+        "description": "The date created of this person.",
+        "translate": "fecha_creacion"
+      }      
+    },
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "required": [
+      "name",
+      "height",
+      "mass",
+      "hair_color",
+      "gender"
+    ],
+    "title": "People",
+    "description": "A person within the Star Wars universe"
+}

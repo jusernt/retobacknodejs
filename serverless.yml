@@ -1,0 +1,76 @@
+service: retobacknodejs01
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: us-east-1
+  environment:
+    DYNAMODB_TABLE: peopleTable
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+          Resource: 
+            - arn:aws:dynamodb:us-east-1:472330964545:table/peopleTable
+      
+
+
+plugins:
+  - serverless-auto-swagger
+  - serverless-offline
+
+functions:
+  myList:
+    handler: src/providers/DynamoDBList.list
+    events:
+      - httpApi:
+          path: /people
+          method: get
+  myCreate:
+    handler: src/providers/DynamoDBCreate.create
+    events:
+      - httpApi:
+          path: /people
+          method: post
+  myGet:
+    handler: src/providers/DynamoDBGet.get
+    events:
+      - httpApi:
+          path: /people/{id}
+          method: get
+  getPeople:
+    handler: src/swapi/People.get
+    events:
+      - httpApi:
+          path: /swapi/people/{id}
+          method: get
+  getPlanets:
+    handler: src/swapi/Planets.get
+    events:
+      - httpApi:
+          path: /swapi/planets/{id}
+          method: get
+
+resources:
+  Resources:
+    PeopleTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: id
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: peopleTable
