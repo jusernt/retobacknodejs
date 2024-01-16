@@ -1,0 +1,70 @@
+{
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "The name of this planet.",
+        "translate": "nombre"
+      },
+      "rotation_period": {
+        "type": "integer",
+        "description": "The rotation_period of this planet.",
+        "translate": "periodo_rotacion"
+      },
+      "orbital_period": {
+        "type": "integer",
+        "description": "The orbital_period of this planet.",
+        "translate": "periodo_orbita"
+      },  
+      "diameter": {
+        "type": "integer",
+        "description": "The diameter of this planet.",
+        "translate": "diametro"
+      },   
+      "climate": {
+        "type": "string",
+        "description": "The climate of this planet.",
+        "translate": "clima"
+      }, 
+      "gravity": {
+        "type": "string",
+        "description": "The gravity of this planet.",
+        "translate": "gravedad"
+      }, 
+      "terrain": {
+        "type": "string",
+        "description": "The terrain of this planet.",
+        "translate": "terreno"
+      },
+      "surface_water": {
+        "type": "integer",
+        "description": "The surface_water of this planet.",
+        "translate": "superficie_agua"
+      }, 
+      "population": {
+        "type": "integer",
+        "description": "The population of this planet.",
+        "translate": "poblacion"
+      }, 
+      "films": {
+        "type": "array",
+        "description": "An array of films resources that this planet",
+        "translate": "peliculas"
+      },
+      "created": {
+        "type": "string",
+        "description": "The date created of this planet.",
+        "translate": "fecha_creacion"
+      }
+    },
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "required": [
+      "name",
+      "rotation_period",
+      "orbital_period",
+      "diameter",
+      "climate"
+    ],
+    "title": "Planets",
+    "description": "A planet within the Star Wars universe"
+}
